@@ -15,7 +15,7 @@ function roleHome(role) {
   return role === "admin" ? "/admin" : "/donor";
 }
 
-function ProtectedRoute({ children, allowedRoles }) {
+function ProtectedRoute({ children, allowedRoles = ["donor"] }) {
   const { token, role } = useAuth();
   const location = useLocation();
 
