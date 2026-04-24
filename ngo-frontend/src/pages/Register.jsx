@@ -18,7 +18,9 @@ export default function Register() {
       await API.post("/users", form);
       setMessage("Account created. Redirecting to login...");
     } catch (err) {
-      setMessage(err?.response?.data?.detail || "Unable to create account. Please verify the backend connection.");
+      const errorMessage =
+        err?.response?.data?.detail || err?.message || "Unable to create account. Please verify the backend connection.";
+      setMessage(errorMessage);
       setLoading(false);
       return;
     } finally {
