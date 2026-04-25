@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
 from sqlalchemy.orm import Session
 
-DATABASE_URL = "mysql+pymysql://root:apurvakoh18%40@localhost:3306/ngo_db"
+DATABASE_URL = "mysql+pymysql://ngo-db.cqrowgwwqe76.us-east-1.rds.amazonaws.com"
 
 engine = create_engine(DATABASE_URL)
 
