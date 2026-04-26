@@ -1,17 +1,13 @@
 import os
 from urllib.parse import quote_plus
-from dotenv import load_dotenv
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
 
-# Load environment variables
-load_dotenv()
-
-# Get DATABASE_URL directly (preferred)
+# Get DATABASE_URL directly (preferred on Render)
 DATABASE_URL = os.getenv("DATABASE_URL")
 
-# Fallback if DATABASE_URL not provided
+# Fallback (optional, only if you use individual env vars)
 if not DATABASE_URL:
     db_user = os.getenv("DB_USER")
     db_password = quote_plus(os.getenv("DB_PASSWORD", ""))
@@ -24,23 +20,27 @@ if not DATABASE_URL:
         f"{db_host}:{db_port}/{db_name}"
     )
 
+# Safety check (VERY IMPORTANT)
+if not DATABASE_URL:
+    raise ValueError("DATABASE_URL is not set")
+
 # Create engine
 engine = create_engine(
     DATABASE_URL,
     pool_pre_ping=True
 )
 
-# Create session
+# Session
 SessionLocal = sessionmaker(
     bind=engine,
     autoflush=False,
     autocommit=False
 )
 
-# Base model
+# Base
 Base = declarative_base()
 
-# Dependency (for FastAPI)
+# Dependency
 def get_db():
     db = SessionLocal()
     try:
