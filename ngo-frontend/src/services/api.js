@@ -12,6 +12,7 @@ API.interceptors.request.use((req) => {
 
 API.interceptors.response.use(
   (response) => response,
+
   (error) => {
     const method = error.config?.method?.toUpperCase() || "REQUEST";
     const url = error.config?.url || "unknown-url";
