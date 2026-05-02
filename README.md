@@ -1,247 +1,193 @@
-# NGO Donation Transparency & Volunteer Management System
+# 🚀 NGO Donation Transparency & Volunteer Management System
 
-A full-stack web application designed to ensure **complete transparency in physical donations**.
-This system allows donors to track **where, how, and how much** of their donated items are used, building trust and accountability in NGO operations.
+A **production-deployed full-stack web application** that ensures **complete transparency in physical donations**, allowing donors to track **where, how, and how much of their donated items are used**.
 
 ---
 
-## 🌟 Core Objective
+## 🌐 Live Demo
 
-> Enable donors to **see the real impact of their donations** through complete visibility and tracking.
+🔗 **Frontend (CloudFront):**  
+https://d27clyusnm7vlu.cloudfront.net  
 
-Every donation is:
+🔗 **Backend API:**  
+https://api.tracecaid.com  
 
-* 📦 Recorded
-* 📍 Tracked by location
-* 📊 Updated with usage details
-* 🔁 Reflected in real-time dashboards
+---
+
+## 🎯 Core Objective
+
+To eliminate the lack of transparency in NGO systems by providing **real-time visibility and traceability of physical donations**.
+
+Each donation is:
+- 📦 Recorded  
+- 📍 Tracked by location  
+- 📊 Updated with usage details  
+- 🔁 Reflected in real-time dashboards  
 
 ---
 
 ## 🚀 Key Features
 
 ### 📦 Physical Donation Transparency
-
-* Track donated items (clothes, food, essentials)
-* View **where donations are used**
-* Monitor **quantity used**
-* Check **remaining stock**
-* Full visibility via donor dashboard
+- Track donated items (clothes, food, essentials)
+- View where donations are used
+- Monitor quantity used
+- Check remaining stock
+- Full visibility via donor dashboard
 
 ---
 
 ### 👤 Donor Dashboard
-
-* Personal donation history
-* Track item usage and distribution
-* View remaining inventory
-* Transparent reporting of impact
+- Personal donation history
+- Track item usage lifecycle
+- View remaining inventory
+- Transparent reporting of impact
 
 ---
 
 ### 🛠️ Admin Panel
-
-* Manage donors and donations
-* Update:
-
-  * Quantity used
-  * Distribution location
-  * Campaign/event details
-* Maintain records for:
-
-  * Donors
-  * Events
-  * Inventory
+- Manage donors and donations
+- Approve and assign donations to campaigns
+- Update:
+  - Quantity used
+  - Distribution location
+  - Campaign details
+- Maintain inventory records
 
 ---
 
 ### 🙋 Volunteer System
-
-* Volunteer self-registration (name, address)
-* Location-based campaign notifications 📍
-* Email alerts for nearby donation drives 📧
-* Volunteers confirm participation before joining
+- Volunteer self-registration (name, address)
+- Location-based campaign notifications 📍
+- Email alerts for nearby donation drives 📧
+- Participation confirmation workflow
 
 ---
 
 ### 📅 Campaign Management
-
-* Create and manage donation drives
-* Assign volunteers to campaigns
-* Track distribution of physical items
+- Create and manage donation drives
+- Assign volunteers to campaigns
+- Track distribution of physical items
 
 ---
 
 ## 🔐 Authentication & Authorization
 
 ### 🔑 JWT Authentication
-
-* Secure login using JWT tokens
-* Stateless authentication mechanism
-* Token required for accessing protected APIs
-
-**Flow:**
-
-1. User logs in
-2. Server validates credentials
-3. JWT token is issued
-4. Token is used for all secure API requests
-
----
+- Secure login using JWT tokens
+- Stateless authentication mechanism
+- Token required for accessing protected APIs
 
 ### 🛡️ Role-Based Access Control (RBAC)
 
-#### 👑 Admin
-
-* Full system access
-* Manage donations, donors, volunteers, and events
-
-#### 🙋 Volunteer
-
-* View assigned campaigns
-* Confirm participation
-
-#### 💰 Donor
-
-* Access personal dashboard
-* Track donation usage and remaining items
+| Role | Access |
+|------|-------|
+| 👑 Admin | Full system access |
+| 🙋 Volunteer | Campaign participation |
+| 💰 Donor | Personal dashboard access |
 
 ---
 
-### 🔒 Security Features
-
-* Protected API routes
-* Role-based access restrictions
-* Secure password hashing
-* Controlled data access
+## 🔒 Security Features
+- Protected API routes
+- Role-based access restrictions
+- Secure password hashing
+- Token-based authentication
 
 ---
 
 ## 🛠️ Tech Stack
 
 ### 🔹 Frontend
-
-* React
-* JavaScript
-* HTML, CSS
+- React
+- JavaScript
+- HTML, CSS
 
 ### 🔹 Backend
-
-* FastAPI
-* RESTful APIs
-* Async request handling
+- FastAPI
+- REST APIs
+- Async request handling
 
 ### 🔹 Database
+- MariaDB (AWS RDS)
 
-* MariaDB
-* Structured storage for donors, donations, events, volunteers
+### 🔹 Deployment (AWS)
+- **Frontend:** AWS S3 + CloudFront  
+- **Backend:** AWS EC2 (Nginx + SSL)  
+- **Database:** AWS RDS  
+- **Domain & SSL:** Route 53 + Let's Encrypt  
 
 ---
 
 ## 🔄 System Workflow
+Donor → Creates donation
+Admin → Approves donation → Updates inventory
+Admin → Assigns to campaign & location
+Admin → Updates usage (quantity, status)
+Donor → Tracks donation lifecycle in dashboard  
 
-1. Donor donates physical items
-2. Admin records donation in system
-3. During campaigns:
-
-   * Items are distributed
-   * Usage is updated (quantity + location)
-4. Donor dashboard updates in real time
-5. Volunteers:
-
-   * Get notified for nearby campaigns
-   * Confirm participation
 
 ---
 
 ## 📁 Project Structure
-
 NGO-Donations-and-volunteer-management/
-│── backend/ (FastAPI APIs)
-│── frontend/ (React UI)
-│── database/ (MariaDB schema)
+│── backend/ # FastAPI APIs
+│── frontend/ # React UI
+│── database/ # MariaDB schema
 │── README.md
+
 
 ---
 
 ## ⚙️ Installation & Setup
 
 ### 1. Clone Repository
-
-```bash
+bash
 git clone https://github.com/apurva-ak47/NGO-Donations-and-volunteer-management.git
 cd NGO-Donations-and-volunteer-management
-```
-
-### 2. Backend Setup (FastAPI)
-
-```bash
-cd backend
-pip install -r requirements.txt
-uvicorn main:app --reload
-```
-
-### 3. Frontend Setup (React)
-
-```bash
-cd frontend
-npm install
-npm start
-```
 
 ---
 
-## 🔑 Usage
+## ⚙️ Installation & Setup
 
-* **Donors:** Track donation usage and remaining items
-* **Admins:** Manage and update transparency records
-* **Volunteers:** Join campaigns based on location
+### 1. Clone Repository
+bash
+git clone https://github.com/apurva-ak47/NGO-Donations-and-volunteer-management.git
+cd NGO-Donations-and-volunteer-management
 
----
+🔑 Usage
 
-## 🎯 Future Enhancements
+👤 Donors
+Track donation usage
+View campaign distribution
+Monitor remaining items
 
-* QR/Barcode-based donation tracking 📷
-* Real-time GPS tracking 📍
-* Blockchain-based transparency 🔗
-* Mobile application 📱
-* Advanced analytics dashboard
+🛠️ Admins
+Approve and manage donations
+Update usage and inventory
+Assign campaigns and locations
 
----
+🙋 Volunteers
+Register and receive campaign notifications
+Confirm participation in donation drives
 
-## 🤝 Contributing
+
+🎯 Future Enhancements
+QR/Barcode-based donation tracking 📷
+Real-time GPS tracking 📍
+Blockchain-based transparency 🔗
+Mobile application 📱
+Advanced analytics dashboard
+🤝 Contributing
 
 Contributions are welcome!
 
-1. Fork the repository
-2. Create a feature branch
-3. Commit changes
-4. Submit a pull request
+Fork the repository
+Create a feature branch
+Commit your changes
+Submit a pull request
 
----
 
-## 👤 Author
-
-**Apurva**
+👤 Author
+Apurva
 GitHub: https://github.com/apurva-ak47
-
----
-
-## 🌍 Impact
-
-❌ Lack of transparency in traditional NGO systems
-✅ This project ensures **complete visibility of physical donations**
-
-By showing:
-
-* Where donations are used
-* How much is used
-* What remains
-
-It builds:
-
-* Trust 🤝
-* Accountability 📊
-* Real impact 🌍
-
----
