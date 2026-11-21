@@ -4,16 +4,6 @@ A **production-deployed full-stack web application** that ensures **complete tra
 
 ---
 
-## 🌐 Live Demo
-
-🔗 **Frontend (CloudFront):**  
-https://d27clyusnm7vlu.cloudfront.net  
-
-🔗 **Backend API:**  
-https://api.tracceaid.com  
-
----
-
 ## 🎯 Core Objective
 
 To eliminate the lack of transparency in NGO systems by providing **real-time visibility and traceability of physical donations**.
